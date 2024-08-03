@@ -3,6 +3,7 @@ import BackgroundImageContent from "./backgroundImageContent"
 import { QuestionContext } from "../providers/QuestionProvider"
 import { Question } from "../interfaces/question"
 import _ from 'lodash'
+import ResultContainer from "./resultContainer"
 
 const QuizContainer: React.FC = () => {
   const { questions } = useContext(QuestionContext)
@@ -63,7 +64,9 @@ const QuizContainer: React.FC = () => {
       <button className="w-[150px] h-[75px] bg-btnNext text-[30px] font-sora self-center mt-[50px]  hover:bg-home focus:bg-home" onClick={() => handleNextBtn()}>Next</button>
     </div>
     ):(
-      <h1>hELLO</h1>
+      <>
+        <ResultContainer scoreResults={20} totalScore={questions.length}/>
+      </>
     )}
   </>
   )
